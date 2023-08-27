@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>camera</title>
+   <style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
+    
+    .controller,.video-wrap,#canvas {
+        position: relative ;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 30px;
+        margin-top: 8% ;
+        text-align: center;
+    }
+    #snap{
+    width: 100px;
+    height: 30px;
+    background-color: rgb(17, 0, 125);
+    border-radius: 20px;
+    box-shadow: inset 0 0 0 0 #6262f7;
+    transition: ease-out 0.5s;
+}
+#snap:hover {
+    box-shadow: inset 100px 0 0 0 #b5baf7; 
+}
+
+
+   </style>
+</head>
+<body>
+    <div class="video-wrap">
+        <video id="video" autoplay playsinline></video>
+    </div>
+    <div class="controller">
+        <a href="weeds/"></a><button id="snap" onclick="dw_pic()">CAPTURE !</button></a></div>
+    </div>
+    <canvas id="canvas" width="640" height="480"></canvas>
+
+<script>
+    'use strict';
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas'); //it store the image
+        const snap = document.getElementById('snap');
+        const errorMsgElement = document.getElementById('span#ErrorMsg');
+
+        const constraints = {
+            video: {
+                width: 640, height: 480
+            }
+        }
+
+        async function init() {
+            try{
+                const stram = await navigator.mediaDevices.getUserMedia(constraints);
+                handleSuccess(stram);
+            }
+            catch(e){
+                errorMsgElement.innerHTML = 'navigator.getUserMedia.error :${e.toString()}';
+            }
+        }
+
+        function handleSuccess(stram){
+            window.stram = stram;
+            video.srcObject = stram ;
+        }
+        window.onload = function(){  
+    init();  
+};
+
+         var context = canvas.getContext('2d');
+         snap.addEventListener("click",function(){
+            context.drawImage(video,0,0,640,480);
+         });
+
+         function dw_pic(){  
+        // get canvas data  
+        var image = canvas.toDataURL();  
+    
+        // create temporary link  
+        var tmpLink = document.createElement( 'a' );  
+        tmpLink.download = 'image.png'; // set the name of the download file 
+        tmpLink.href = image;  
+    
+        // temporarily add link to body and initiate the download  
+        document.body.appendChild( tmpLink );  
+        tmpLink.click();  
+        document.body.removeChild( tmpLink );  
+        }
+    </script>
+   
+</body>
+</html>

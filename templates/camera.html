@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width, initial-scale =1.0">
+    <title>Camera</title>
+    <script type="text/javascript" src = "https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+<style>
+    a {
+        padding: 10px;
+        background-color: rgb(198, 201, 196);
+        color: rgb(125, 114, 114);
+        text-decoration: none;
+    }
+
+    canvas{
+        display: none;
+    } 
+</style>
+
+     <link rel="stylesheet" href="/static/styles/pest.css">
+     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css'> 
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+    <body >
+        <form class="cam">
+        <fieldset class="cam_body">
+            <video id="webCam" autoplay playsinlne width="800" height="600"></video>
+            <canvas id="canvas"></canvas><br><br>
+            <a download onClick="takeAPicture()" id="Snap"><button type="button" class="btn btn-link" id="snap"><span class="bi bi-camera-fill"></span></button></a>
+            <input type="button" value="Go back!" onclick="history.back()" class="">
+
+            <!-- <input type="File"  id="Upload" placeholder="Upload the file"> -->
+    </fieldset>
+    </form>
+      <script>
+            const webcamElement = document.getElementById("webCam");
+            const canvasElement = document.getElementById("canvas");
+            const webcam = new Webcam(webcamElement,"user",canvasElement);
+            const Snap = document.getElementById("Snap");
+
+            webcam.start();
+            function takeAPicture()
+            {
+                let picture = webcam.snap();
+                document.querySelector("a").href = picture;
+            }
+            
+         
+        </script>
+    
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+ <html lang="en">
+    <head>
+   
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pest Control</title>
+        
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css'>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap" rel="stylesheet">
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <link rel="stylesheet" href="/static/styles/pest.css">
+        <script src="/static/js/popup.js"></script>
+
+    </head>
+
+    <body>
+      <!-- header -->
+      <div class="menu-bar">
+        <h1 class="logo">AgroCure</h1> 
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about us/">About</a></li>
+          <li><a href="#">Services<i class="fas fa-caret-down"></i></a>
+  
+              <div class="dropdown-menu">
+                  <ul>
+                    <li><a href="/weed/">Weed Control</a></li>
+                    <li><a href="/pest/">Pest Control</a></li>
+                  </ul>
+              </div>
+              <li><a href="#">Feedback</a></li>
+        </ul>
+      </div>
+      
+    <!-- Search Bar & Submit -->
+            <form name="f1" method="get" class="search1">
+                <p> <h1 class="pest"> PEST CONTROL </h1></p> <br>  
+                <input type="text" placeholder="Search Your Pest Here..." name="pest" size="60px" class="c1">
+                <button type="submit" class="s1"><b>SUBMIT </b></button> <br> <br>
+                <button class="c2"> <input type= "file" class="c3"> </button>
+                <a target="_self" href="/camera/"><button type="button" class="btn btn-light" ><span class="bi bi-camera"></span></button></a>
+            </form>
+            
+        <!-- Chat Popup -->
+            <button class="open-button" onclick="openForm()"> <img src="/static/images/chat.png" alt="chat_with_us"> </button>
+            <div class="chat-popup" id="myForm">
+                <form class="form-container">
+                    <h1> Hi there 👋 </h1>
+    
+                    <label for="msg" class="msg">Ask us Anything , or share your feedback. </label>
+                    <textarea name="msg" class="phm" placeholder="Type Message.." required></textarea>
+    
+                    <button type="submit" class="btn"> Send </button>
+                    <button type="Button" class="btn cancel" onclick="closeForm()"> Close </button>
+                  
+    </body>
+ </html>

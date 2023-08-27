@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles/signupstyle.css" />
+    <title>Pest control - Signup</title>
+</head>
+<body>
+    <div class="login-wrapper shaded-bg">
+        <form action="" method="POST" class="form">
+          {% csrf_token %}
+
+          <h2>Create account</h2>
+          <div class="input-group">
+            <input type="text" name="username" id="loginUser" required />
+            <label for="loginUser">User Name</label>
+          </div>
+          <div class="input-group">
+            <input type="password" name="password1" id="loginPassword" required/>
+            <label for="loginPassword">Password</label>
+          </div>
+          <div class="input-group">
+              <input type="password" name="password2" placeholder="Confirm Password" required><br>
+          </div>
+          <button type="submit" class="cust-btn" id="cac">Create</button>
+        </form>
+        <div>
+          {% for message in messages %}
+          <h3> {{message}}  </h3>
+          {% endfor %}
+      </div>
+    </div>
+</body>
+</html>
